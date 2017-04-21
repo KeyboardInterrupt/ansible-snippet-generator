@@ -71,3 +71,45 @@ options = [[u'state',
    u'description': [u'If I(yes), indicates that the group created is a system group.'],
    u'required': False}]]
 ```
+
+## Example Jinja2 Template
+
+Template:
+
+```jinja2
+<snippet>
+<content><![CDATA[
+${1:{% for option in options %}# {{ option[0] }} = {{ option[1]['description'][0].split(' ')[:20]|join(' ')}}
+{% endfor %}}- name: ${2:Name for {{ module }} module.}
+  {{ module }}:
+{% for option in options %}   ${% raw %}{{% endraw %}{{ loop.index +3 }}:{{ option[0] }}: {% raw %}}{% endraw %}
+{% endfor %}  when: variable is defined
+  with_items: array
+  tags: array]]></content>
+	<tabTrigger>template</tabTrigger>
+	<scope>source.yaml,source.ansible</scope>
+</snippet>
+```
+
+Output of `./ansible-snippet-generator.py group -t templates/sublime-snippet-template.jinja2`:
+
+```
+<snippet>
+<content><![CDATA[
+${1:# state = Whether the group should be present or not on the remote host.
+# gid = Optional I(GID) to set for the group.
+# name = Name of the group to manage.
+# system = If I(yes), indicates that the group created is a system group.
+}- name: ${2:Name for group module.}
+  group:
+   ${4:state: }
+   ${5:gid: }
+   ${6:name: }
+   ${7:system: }
+  when: variable is defined
+  with_items: array
+  tags: array]]></content>
+        <tabTrigger>template</tabTrigger>
+        <scope>source.yaml,source.ansible</scope>
+</snippet>
+```
