@@ -4,8 +4,8 @@ This tool generates ansible code snippets based on the ansible documentation and
 
 ## Requirements
 
-ansible-snippet-generator works with python2 or python3, the following python packages are needed.
-- ansible
+ansible-snippet-generator works with python2 or python3, the following python packages and Versions are needed.
+- ansible `2.3.0.0`
 - jinja2 
 
 ## Usage
