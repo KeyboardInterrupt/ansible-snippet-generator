@@ -86,7 +86,7 @@ ${1:{% for option in options %}# {{ option[0] }} = {{ option[1]['description'][0
 {% endfor %}  when: variable is defined
   with_items: array
   tags: array]]></content>
-	<tabTrigger>template</tabTrigger>
+	<tabTrigger>{{ module }}</tabTrigger>
 	<scope>source.yaml,source.ansible</scope>
 </snippet>
 ```
@@ -109,7 +109,7 @@ ${1:# state = Whether the group should be present or not on the remote host.
   when: variable is defined
   with_items: array
   tags: array]]></content>
-        <tabTrigger>template</tabTrigger>
+        <tabTrigger>group</tabTrigger>
         <scope>source.yaml,source.ansible</scope>
 </snippet>
 ```

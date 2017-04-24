@@ -7,6 +7,6 @@ ${1:{% for option in options %}# {{ option[0] }} = {{ option[1]['description'][0
 {% endfor %}  when: variable is defined
   with_items: array
   tags: array]]></content>
-	<tabTrigger>template</tabTrigger>
+	<tabTrigger>{{ module }}</tabTrigger>
 	<scope>source.yaml,source.ansible</scope>
 </snippet>
