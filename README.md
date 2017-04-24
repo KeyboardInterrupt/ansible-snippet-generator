@@ -82,7 +82,7 @@ Template:
 ${1:{% for option in options %}# {{ option[0] }} = {{ option[1]['description'][0].split(' ')[:20]|join(' ')}}
 {% endfor %}}- name: ${2:Name for {{ module }} module.}
   {{ module }}:
-{% for option in options %}   ${% raw %}{{% endraw %}{{ loop.index +3 }}:{{ option[0] }}: {% raw %}}{% endraw %}
+{% for option in options %}    ${% raw %}{{% endraw %}{{ loop.index +3 }}:{{ option[0] }}: {% raw %}}{% endraw %}
 {% endfor %}  when: variable is defined
   with_items: array
   tags: array]]></content>
@@ -102,10 +102,10 @@ ${1:# state = Whether the group should be present or not on the remote host.
 # system = If I(yes), indicates that the group created is a system group.
 }- name: ${2:Name for group module.}
   group:
-   ${4:state: }
-   ${5:gid: }
-   ${6:name: }
-   ${7:system: }
+    ${4:state: }
+    ${5:gid: }
+    ${6:name: }
+    ${7:system: }
   when: variable is defined
   with_items: array
   tags: array]]></content>
