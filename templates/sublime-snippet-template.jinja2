@@ -3,7 +3,7 @@
 ${1:{% for option in options %}# {{ option[0] }} = {{ option[1]['description'][0].split(' ')[:20]|join(' ')}}
 {% endfor %}}- name: ${2:Name for {{ module }} module.}
   {{ module }}:
-{% for option in options %}   ${% raw %}{{% endraw %}{{ loop.index +3 }}:{{ option[0] }}: {% raw %}}{% endraw %}
+{% for option in options %}    ${% raw %}{{% endraw %}{{ loop.index +3 }}:{{ option[0] }}: {% raw %}}{% endraw %}
 {% endfor %}  when: variable is defined
   with_items: array
   tags: array]]></content>
